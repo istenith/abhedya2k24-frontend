@@ -42,8 +42,9 @@ function Navbar() {
             </ul>
           </div>
           <div className="order-2 md:order-3">
-            <button className="shadow-[inset_0_0_0_2px_#616467] px-5 py-2 flex items-center gap-2 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200">
-              <svg
+            <Link href="/sign">
+            <button  className="shadow-[inset_0_0_0_2px_#616467] px-5 py-2 flex items-center gap-2 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200">
+              <svg 
                 xmlns="http://www.w3.org/2000/svg"
                 className="h-5 w-5"
                 viewBox="0 0 20 20"
@@ -55,8 +56,9 @@ function Navbar() {
                   clip-rule="evenodd"
                 />
               </svg>
-              <span>Signup</span>
+              <span >Signup</span>
             </button>
+            </Link>
           </div>
         </div>
       </nav>
