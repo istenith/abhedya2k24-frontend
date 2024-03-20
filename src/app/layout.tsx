@@ -20,6 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={inter.className}>
+        <BackgroundBeams />
         <div className="sticky top-0">
           <Navbar />
         </div>
