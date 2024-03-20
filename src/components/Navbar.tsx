@@ -55,7 +55,7 @@ function Navbar() {
                   clip-rule="evenodd"
                 />
               </svg>
-              <span>Login</span>
+              <span>Signup</span>
             </button>
           </div>
         </div>
