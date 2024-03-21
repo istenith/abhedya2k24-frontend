@@ -134,7 +134,7 @@ export default function SparklesPreview() {
             // boxShadow: "14px 11px 65px -11px rgba(0,0,0,0.71)",
           }}
         >
-          <thead className="sticky backdrop-blur-2xl top-0 ">
+          <thead className="sticky top-0 ">
             <tr className="">
               <th className="border-y border-gray-900 text-center p-4">
                 <p className="block antialiased font-sans text-sm text-blue-gray-900 font-extrabold text-xl leading-none opacity-70">
