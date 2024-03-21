@@ -8,6 +8,7 @@ import { useUrl } from 'nextjs-current-url';
 
 function Navbar() {
   const { pathname, href } = useUrl() ?? {};
+  console.log(pathname, href);
   
   const url = pathname ?? '';
 
