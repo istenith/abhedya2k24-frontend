@@ -22,7 +22,7 @@ function Navbar() {
   return (
     <>
       <nav className="w-100 px-8 md:px-auto">
-        <div className="md:h-16 h-28 mx-auto md:px-4 container flex items-center justify-between flex-wrap md:flex-nowrap">
+        <div className="md:h-16 h-28 mx-auto md:px-4 container flex items-center justify-center flex-wrap md:flex-nowrap">
           <div className="text-indigo-50 text-3xl md:order-1">Abhedya</div>
           <div className="text-gray-500 order-3 w-full md:w-auto md:order-2">
             <ul className={`flex font-bold text-lg justify-between ${mobileMenuOpen ? 'hidden' : 'hidden'} md:flex`}>
@@ -77,7 +77,7 @@ function Navbar() {
               </button>
             </div>
             {mobileMenuOpen && (
-              <ul className="h-50 duration-300 mt-12 absolute right-0 md:right-auto md:left-0 text-white-900 bg-black rounded-lg shadow-lg mt-2 py-1 w-32">
+              <ul className="h-50 duration-300 absolute right-0 md:right-auto md:left-0 text-white-900 bg-black rounded-lg shadow-lg mt-2 py-1 w-32">
                 <li className="text-white-800 hover:bg-gray-50 hover:text-indigo-500 px-4 py-2">
                   <Link href="/">Home</Link>
                 </li>
@@ -93,13 +93,13 @@ function Navbar() {
               </ul>
             )}
           </div>
-          <div className="order-2 text-center md:order-3 flex items-center flex flex-row mt-2">
+          <div className="order-2 text-center md:order-3 flex items-center flex-row mt-2">
             <Link href="/sign">
-              <button className=" hidden md:block shadow-[inset_0_0_0_2px_#616467] px-5 py-2 flex items-center gap-2 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200">
+              <button className="w-full hidden md:flex md:items-center shadow-[inset_0_0_0_2px_#616467] px-5 py-2 items-center gap-2 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200">
               <span>Signup</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 flex items-center justify-center ml-6"
+                  className="h-5 w-5 ml-6 transform scale-x-[-1] "
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >

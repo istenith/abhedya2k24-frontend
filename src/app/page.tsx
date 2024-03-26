@@ -4,14 +4,16 @@ import Link from "next/link";
 export default function Home() {
   return (
     <>
-      <div className="rounded-md min-h-[80vh] flex flex-col items-center justify-center gap-4 ">
+      <div className="rounded-md flex flex-col items-center justify-start gap-4 ">
         <div className="max-w-5xl ">
-          <h1 className="relative z-10  text-7xl md:text-9xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  text-center font-sans font-bold">
+          <sup className="text-lg text-gray-400">30.3.24</sup>
+          <h1 className="relative z-10 text-7xl md:text-9xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  text-center font-sans font-bold">
             Abhedya 3.0
           </h1>
           <p></p>
-          <p className="text-neutral-500 max-w-lg mx-auto my-2 text-xl text-center relative ">
-            Write Here something about Abhedya
+          <p className="text-neutral-500 max-w-3xl mx-auto my-2 text-lg text-center relative">
+          Embark on a cosmic adventure with Abhedya, an interstellar cryptic hunt challenging your logical, technical, and creative thinking.
+          May the constellations align in your favor as you reach for the stars and strive to become the ultimate cosmic conqueror!
           </p>
         </div>
         <Link href="/game">
