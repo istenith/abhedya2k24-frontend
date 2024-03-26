@@ -243,12 +243,12 @@ export default function BackgroundGradientDemo() {
               To participate in <big>Abhedya</big> - the biggest online cryptic hunt @ NIT Hamirpur, make sure that you are <a href="/sign" className=" text-blue-400 italic underline">registered&rarr;</a>
             </p>
             <p className="  text-gray-200 text-md">
-              <u><b className="text-white">If you've already registered</b></u>, make sure to - <br />
+              <u><b className="text-white">If you have already registered</b></u>, make sure to - <br />
                 <ol className=" list-decimal ml-8">
                   <li>Find the login link recieved on your e-mail (check spam folder too!) &#9745;</li>
                   <li>Click the login button, or the link provided in the mail &#9745;</li>
                 </ol>
-                Now you'll be logged in and ready to play. All the best for this adventure!
+                Now you will be logged in and ready to play. All the best for this adventure!
             </p>
             <p>
               Incase of any discrepancies or doubts, contact 

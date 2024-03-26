@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import { useParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 
-const page = () => {
+const Page = () => {
   
   const router = useRouter()
   const params = useParams()
@@ -62,4 +62,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page
