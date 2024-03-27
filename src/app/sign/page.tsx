@@ -106,7 +106,7 @@ export default function SignupFormDemo() {
               </>
             ) : (
               <div className="text-lg text-gray-300">
-                <h1>Bingo! You're now <span className=" text-green-500">registered</span> for <big className="font-bold text-white">Abhedya</big> - <u>the biggest online cryptic hunt</u> @ NIT Hamirpur</h1><br />
+                <h1>Bingo! You are now <span className=" text-green-500">registered</span> for <big className="font-bold text-white">Abhedya</big> - <u>the biggest online cryptic hunt</u> @ NIT Hamirpur</h1><br />
                 <p>
                   You will shortly recieve an email with a login link (make sure to check the spam folder!).<br /> Click on that link to start playing.<br /> All the best! <br/>
                 </p>
