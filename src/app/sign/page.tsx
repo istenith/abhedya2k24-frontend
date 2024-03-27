@@ -3,12 +3,14 @@ import React, {useState, useEffect} from "react";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { cn } from "@/utils/cn";
+
 import {
   IconBrandGithub,
   IconBrandGoogle,
   IconBrandOnlyfans,
 } from "@tabler/icons-react";
 import { BackgroundBeams } from "@/components/background-beams";
+import { baseUrl } from "@/utils/config";
 
 export default function SignupFormDemo() {
   const [firstName, setFirstName] = useState('')
@@ -20,7 +22,9 @@ export default function SignupFormDemo() {
   const handleRegister = async (e: any) => {
     e.preventDefault()
     
-    fetch('http://api.abhedya.istenith.com/user/register', {
+    console.log(baseUrl)
+
+    fetch(`${baseUrl}/user/register`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -39,6 +43,10 @@ export default function SignupFormDemo() {
           return res
         } else if (res.status == 400) {          
           alert('user already exists. Please check your email (also spam folder) for the login link.')
+          setFirstName('')
+          setLastName('')
+          setEmail('')
+          setusername('')       
         }
       })
   }

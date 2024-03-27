@@ -6,7 +6,6 @@ export default function Home() {
     <>
       <div className="rounded-md flex flex-col items-center justify-start gap-4 ">
         <div className="max-w-5xl ">
-          <sup className="text-lg text-gray-400">30.3.24</sup>
           <h1 className="relative z-10 text-7xl md:text-9xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  text-center font-sans font-bold">
             Abhedya 3.0
           </h1>

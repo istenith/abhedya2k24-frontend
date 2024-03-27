@@ -1,14 +1,17 @@
 "use client";
 import { BackgroundBeams } from "@/components/background-beams";
+import { baseUrl } from "@/utils/config";
 import React, {useState, useEffect} from "react";
 
 export default function SparklesPreview() {
   const [data, setdata] = useState([])
   const [dataLoaded, setdataLoaded] = useState(false)
 
+  
+
   useEffect(()=>{
     try {
-      fetch('http://api.abhedya.istenith.com/play/leaderboard')
+      fetch(`${baseUrl}/play/leaderboard/`)
         .then(async response => response.json())
         .then(data => {
           setdata(data.sortedUsers)

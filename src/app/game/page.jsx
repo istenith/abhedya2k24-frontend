@@ -4,6 +4,7 @@ import Image from "next/image";
 import { BackgroundBeams } from "@/components/background-beams";
 import { useRouter } from "next/navigation";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
+import { baseUrl } from "@/utils/config";
 
 const Icon = ({ className, ...rest }) => {
   return (
@@ -27,7 +28,7 @@ export default function BackgroundGradientDemo() {
   const [currentQuestion, setCurrentQuestion] = useState({})
   const [userAnswer, setUserAnswer] = useState("")
   const [userLoggedIn, setUserLoggedIn] = useState(true)
-  
+
   useEffect(() => {
       const tokenInLocalStorage = localStorage.getItem("loginToken")
       // If user is logged in
@@ -35,7 +36,7 @@ export default function BackgroundGradientDemo() {
         setUserLoggedIn(true)
         console.log("loaded page. token is: ", tokenInLocalStorage)
         try {
-          fetch("http://api.abhedya.istenith.com/play/", {
+          fetch(`${baseUrl}/play/`, {
               method: "POST",
               headers: {
                 'Content-Type': 'application/json',
@@ -69,7 +70,7 @@ export default function BackgroundGradientDemo() {
   useEffect(()=>{
     const tokenInLocalStorage = localStorage.getItem("loginToken")
     if (tokenInLocalStorage) {
-      fetch('http://api.abhedya.istenith.com/user/get_detail_startedAbhedya', {
+      fetch(`${baseUrl}/user/get_detail_startedAbhedya`, {
         method: 'POST',
         headers: {
           'Content-type': 'application/json'
@@ -89,7 +90,7 @@ export default function BackgroundGradientDemo() {
     
     const handleAnswerSubmit = async (e) => {
       e.preventDefault()
-      fetch("http://api.abhedya.istenith.com/play/submit", {
+      fetch(`${baseUrl}/play/submit`, {
         'method': 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -128,7 +129,7 @@ export default function BackgroundGradientDemo() {
     
     if (tokenInLocalStorage) {
       console.log('token found in game screen when clicking start: ', tokenInLocalStorage)
-      fetch('http://api.abhedya.istenith.com/user/startAbhedya', {
+      fetch(`${baseUrl}/user/startAbhedya`, {
         method: 'POST',
         headers: {
           'Content-type': 'application/json'

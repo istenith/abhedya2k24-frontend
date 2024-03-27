@@ -21,14 +21,9 @@ export default function LampDemo() {
       <h1 className="text-5xl mx-inset-3 text-zinc-200  font-semibold">RULES</h1>
       <div className="m ">
       <ul className="list-disc text-2xl justify-center  text-zinc-200 items-center py-2">
-    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, molestiae!</li>
-    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit, modi!</li>
-    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, necessitatibus?</li>
-    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, error?</li>
-    <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, corrupti.</li>
-    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, minima!</li>
-    <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum, minima!</li>
-   </ul>
+        <li>You can use internet and all other related facilities</li>
+        <li>Once you click Start, your time taken oer question will be recorded, no matter if you close you phone or laptop.</li>
+      </ul>
       </div>
 
 

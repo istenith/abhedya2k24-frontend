@@ -2,6 +2,7 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
+import { baseUrl } from "@/utils/config";
 
 const Page = () => {
   
@@ -14,7 +15,7 @@ const Page = () => {
 
   useEffect(()=> {
     const sendRequest = async () => {
-      fetch(`http://api.abhedya.istenith.com/user/login/${params.loginString}`)
+      fetch(`${baseUrl}/user/login/${params.loginString}`)
         .then((response) => {
           return response.json()
         })
