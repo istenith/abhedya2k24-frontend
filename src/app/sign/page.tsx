@@ -59,14 +59,14 @@ export default function SignupFormDemo() {
                       type="text"
                       value={firstName}
                       placeholder="First Name"
-                      className="rounded-full border border-neutral-600 focus:ring-2 focus:ring-teal-500 h-10 p-4 w-full relative z-10  bg-neutral-950 placeholder:text-neutral-500"
+                      className="rounded-full border text-white border-neutral-600 focus:ring-2 focus:ring-teal-500 h-10 p-4 w-full relative z-10  bg-neutral-950 placeholder:text-neutral-500"
                     />
                     <input
                       onChange={(e) => setLastName(e.target.value)}
                       type="text"
                       value={lastName}
                       placeholder="Last Name"
-                      className="rounded-full border border-neutral-600 focus:ring-2 focus:ring-teal-500 h-10 p-4 w-full relative z-10  bg-neutral-950 placeholder:text-neutral-500"
+                      className="rounded-full border text-white border-neutral-600 focus:ring-2 focus:ring-teal-500 h-10 p-4 w-full relative z-10  bg-neutral-950 placeholder:text-neutral-500"
                     />
                   </div>
                   <input
@@ -74,14 +74,14 @@ export default function SignupFormDemo() {
                       type="text"
                       value={username}
                       placeholder="username"
-                      className="mb-5 rounded-full border border-neutral-600 focus:ring-2 focus:ring-teal-500 h-10 p-4 w-full relative z-10  bg-neutral-950 placeholder:text-neutral-500"
+                      className="mb-5 rounded-full text-white border border-neutral-600 focus:ring-2 focus:ring-teal-500 h-10 p-4 w-full relative z-10  bg-neutral-950 placeholder:text-neutral-500"
                     />
                     <input
                       onChange={(e)=> setEmail(e.target.value)}
                       type="text"
                       value={email}
                       placeholder="Email"
-                      className="mb-5 rounded-full border border-neutral-600 focus:ring-2 focus:ring-teal-500 h-10 p-4 w-full relative z-10  bg-neutral-950 placeholder:text-neutral-500"
+                      className="mb-5 rounded-full text-white border border-neutral-600 focus:ring-2 focus:ring-teal-500 h-10 p-4 w-full relative z-10  bg-neutral-950 placeholder:text-neutral-500"
                     />
                   
                   

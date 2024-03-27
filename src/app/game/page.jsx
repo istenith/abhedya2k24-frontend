@@ -161,7 +161,7 @@ export default function BackgroundGradientDemo() {
           {(()=>{
             console.log('andar se', currentQuestion)
 
-            if (currentQuestion.questionAssets.length > 0) {
+            if (currentQuestion.questionAssets?.length > 0) {
               return ( currentQuestion.questionAssets.map((asset, index) => {
                 console.log('asset number ', index, asset)
                 switch (asset.type) {
