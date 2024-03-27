@@ -54,7 +54,7 @@ const Page = () => {
           <h1 >
             {
               isLoggedin ? 
-            `You're logged in. \n Please wait while we redirect you in ${seconds} seconds ...`
+            `You are logged in. \n Please wait while we redirect you in ${seconds} seconds ...`
               :
               `Logging in...`
             }
