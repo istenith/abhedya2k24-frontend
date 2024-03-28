@@ -51,6 +51,9 @@ export default function SignupFormDemo() {
           setLastName('')
           setEmail('')
           setusername('')       
+        } else if (res.status == 422) {
+          alert("Please enter you college email id.")
+          setEmail('')
         }
       })
   }

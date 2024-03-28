@@ -52,6 +52,9 @@ export default function BackgroundGradientDemo() {
                 const questionReturnedFromBackend = data["question"];
                 setCurrentQuestion(questionReturnedFromBackend)
                 console.log('Current question', questionReturnedFromBackend)
+              } else if(response.status == 201){
+                alert("Escape.")
+                router.push("https://www.youtube.com/watch?v=xvFZjo5PgG0")
               } else {
                 setUserLoggedIn(false)
               }
@@ -144,8 +147,6 @@ export default function BackgroundGradientDemo() {
           setStartedAbhedya(true)
         }
       })
-    }else{
-
     }
   }
   
