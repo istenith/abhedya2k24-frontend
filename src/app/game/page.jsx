@@ -238,7 +238,7 @@ export default function BackgroundGradientDemo() {
       ) : (
         <div className="w-screen h-screen flex flex-col items-center justify-start pt-12 ">
 
-          <div className=" w-11/12 md:w-5/12 backdrop-blur-sm bg-gray-950 h-96 rounded-2xl p-8 flex border border-white flex-col justify-between items-start">
+          <div className=" w-11/12 md:w-5/12 backdrop-blur-sm bg-gray-950 h-contain rounded-2xl p-8 flex border border-white flex-col justify-between items-start">
             <h1 className="text-xl font-semibold">You are not currently logged in.</h1>
             <p className="  text-gray-200">
               To participate in <big>Abhedya</big> - the biggest online cryptic hunt @ NIT Hamirpur, make sure that you are <a href="/sign" className=" text-blue-400 italic underline">registered&rarr;</a>
