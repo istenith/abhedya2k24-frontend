@@ -232,7 +232,7 @@ export default function BackgroundGradientDemo() {
       ) : (
         <div className="flex flex-col text-white justify-center items-center gap-5">
           <h1 className="text-2xl font-sans">Congratulations! It was hard but worth it at the end. You just completed Abhedya!</h1>
-          <h3>Click <span onClick={lastRickRoll} className=" text-green-500 font-bold underline">here</span> to move on to the winners' list</h3>
+          <h3>Click <span onClick={lastRickRoll} className=" text-green-500 font-bold underline">here</span> to move on to the winners&apos; list</h3>
         </div>
       )
     ) : (
