@@ -56,7 +56,7 @@ export default function SignupFormDemo() {
           setEmail('')
         } else if (res.status == 421) {
           alert("Username already taken.")
-          setEmail('')
+          setusername('')
         }
       })
   }
