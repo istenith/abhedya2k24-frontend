@@ -27,7 +27,7 @@ export default function BackgroundGradientDemo() {
   const [startedAbhedya, setStartedAbhedya] = useState(false)
   const [currentQuestion, setCurrentQuestion] = useState({})
   const [userAnswer, setUserAnswer] = useState("")
-  const [userWon, setUserWon] = useState(false)
+  const userWon = useRef(false)
   const [userLoggedIn, setUserLoggedIn] = useState(true)
 
   useEffect(() => {
@@ -36,36 +36,36 @@ export default function BackgroundGradientDemo() {
       if (tokenInLocalStorage) {
         setUserLoggedIn(true)
         console.log("loaded page. token is: ", tokenInLocalStorage)
-        try {
-          fetch(`${baseUrl}/play/`, {
-              method: "POST",
-              headers: {
-                'Content-Type': 'application/json',
-                'token': tokenInLocalStorage
-              },
-              body: JSON.stringify({
-                "token": tokenInLocalStorage
+        if(!userWon) {
+          try {
+            fetch(`${baseUrl}/play/`, {
+                method: "POST",
+                headers: {
+                  'Content-Type': 'application/json',
+                  'token': tokenInLocalStorage
+                },
+                body: JSON.stringify({
+                  "token": tokenInLocalStorage
+                })
+              }).then(async response => {
+                if (response.status === 200){
+                  const data = await response.json()
+                  console.log('data: ', data, typeof(data))
+                  const questionReturnedFromBackend = data["question"];
+                  setCurrentQuestion(questionReturnedFromBackend)
+                  console.log('Current question', questionReturnedFromBackend)
+                } else if(response.status == 201){
+                  userWon.current = true
+                  alert("Can't believe you fell for it.")
+                  router.push("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+                } else {
+                  setUserLoggedIn(false)
+                }
               })
-            }).then(async response => {
-              if (response.status === 200){
-                const data = await response.json()
-                console.log('data: ', data, typeof(data))
-                const questionReturnedFromBackend = data["question"];
-                setCurrentQuestion(questionReturnedFromBackend)
-                console.log('Current question', questionReturnedFromBackend)
-              } else if(response.status == 201){
-                alert("Can't believe you fell for it.")
-                router.push("https://www.youtube.com/watch?v=xvFZjo5PgG0")
-                setUserWon(true)
-              } else {
-                setUserLoggedIn(false)
-              }
-            })
-            
-
-          } catch (error) {
-            console.log("error: ", error);
-          } 
+            } catch (error) {
+              console.log("error: ", error);
+            } 
+        }
         }else{
           setUserLoggedIn(false)
         }
@@ -244,6 +244,7 @@ export default function BackgroundGradientDemo() {
         <p className="mt-8">
           <span className="text-lg font-medium underline">These are the important guidelines everyone is request to read before embarking on this journey</span>
           <ul>
+            <li>This hunt consists of 15 questions, going from easy to hard and harder. Correctly answering the last one leads to the great surprise.</li>
             <li>You can use internet and all other related facilities</li>
             <li>Once you click Start, your time taken oer question will be recorded, no matter if you close you phone or laptop.</li>
             <li>Keep yours answers safe on a sheet of paper for future reference.</li>
