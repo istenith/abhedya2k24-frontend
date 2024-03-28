@@ -85,14 +85,14 @@ export default function SignupFormDemo() {
                       onChange={(e) => setusername(e.target.value)}
                       type="text"
                       value={username}
-                      placeholder="username"
+                      placeholder="Username"
                       className="mb-5 rounded-full text-white border border-neutral-600 focus:ring-2 focus:ring-teal-500 h-10 p-4 w-full relative z-10  bg-neutral-950 placeholder:text-neutral-500"
                     />
                     <input
                       onChange={(e)=> setEmail(e.target.value)}
                       type="text"
                       value={email}
-                      placeholder="Email"
+                      placeholder="College E-mail ID"
                       className="mb-5 rounded-full text-white border border-neutral-600 focus:ring-2 focus:ring-teal-500 h-10 p-4 w-full relative z-10  bg-neutral-950 placeholder:text-neutral-500"
                     />
                   
