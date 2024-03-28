@@ -237,7 +237,7 @@ export default function BackgroundGradientDemo() {
           </ul>
           <br />
           <br />
-          <button onClick={abhedyaNotStarted} className="self-center rounded-full px-5 py-2 border duration-200 hover:bg-green-700">
+          <button onClick={finallyStartAbhedya} className="self-center rounded-full px-5 py-2 border duration-200 hover:bg-green-700">
             Start!
           </button>
         </p>

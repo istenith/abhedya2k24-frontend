@@ -54,6 +54,9 @@ export default function SignupFormDemo() {
         } else if (res.status == 422) {
           alert("Please enter you college email id.")
           setEmail('')
+        } else if (res.status == 421) {
+          alert("Username already taken.")
+          setEmail('')
         }
       })
   }
