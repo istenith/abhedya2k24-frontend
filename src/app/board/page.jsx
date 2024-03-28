@@ -44,17 +44,17 @@ export default function SparklesPreview() {
           <thead className="sticky top-0 ">
             <tr className="">
               <th className="border-y border-gray-900 text-center p-4">
-                <p className="block antialiased font-sans text-blue-gray-900 font-extrabold text-xl leading-none opacity-70">
+                <p className="block antialiased font-sans text-gray-300 font-extrabold text-xl leading-none opacity-70">
                   Rank
                 </p>
               </th>
               <th className="border-y border-gray-900 text-center p-4">
-                <p className="block antialiased font-sans text-blue-gray-900 font-extrabold text-xl leading-none opacity-70">
+                <p className="block antialiased font-sans text-gray-300 font-extrabold text-xl leading-none opacity-70">
                   User Name
                 </p>
               </th>
               <th className="border-y text-center border-gray-900 bg-blue-gray-50/50 p-4">
-                <p className="block antialiased font-sans text-blue-gray-900 font-extrabold text-xl leading-none opacity-70">
+                <p className="block antialiased font-sans text-gray-300 font-extrabold text-xl leading-none opacity-70">
                   Level
                 </p>
               </th>
@@ -66,18 +66,18 @@ export default function SparklesPreview() {
                 <tr key={index} className="hover:bg-[#222222c7] ease-in-out">
                 <td className="p-4 border-b border-gray-900">
                   <div className="flex items-center justify-center gap-3">
-                    <p className="block antialiased text-center font-sans text-sm leading-normal text-blue-gray-900 font-bold">
+                    <p className="block antialiased text-center font-sans text-sm leading-normal text-gray-300 font-bold">
                       {index + 1}
                     </p>
                   </div>
                 </td>
                 <td className="p-4 border-b text-center border-gray-900">
-                  <p className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">
+                  <p className="block antialiased font-sans text-sm leading-normal text-gray-300 font-normal">
                     {user.username}
                   </p>
                 </td>
                 <td className="p-4 border-b text-center border-gray-900">
-                  <p className="block antialiased font-sans text-sm leading-normal text-blue-gray-900 font-normal">
+                  <p className="block antialiased font-sans text-sm leading-normal text-gray-300 font-normal">
                     {user.currentLevelInt}
                   </p>
                 </td>

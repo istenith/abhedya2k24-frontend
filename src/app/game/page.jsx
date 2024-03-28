@@ -27,6 +27,7 @@ export default function BackgroundGradientDemo() {
   const [startedAbhedya, setStartedAbhedya] = useState(false)
   const [currentQuestion, setCurrentQuestion] = useState({})
   const [userAnswer, setUserAnswer] = useState("")
+  const [userWon, setUserWon] = useState(false)
   const [userLoggedIn, setUserLoggedIn] = useState(true)
 
   useEffect(() => {
@@ -55,6 +56,7 @@ export default function BackgroundGradientDemo() {
               } else if(response.status == 201){
                 alert("Can't believe you fell for it.")
                 router.push("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+                setUserWon(true)
               } else {
                 setUserLoggedIn(false)
               }
@@ -129,6 +131,11 @@ export default function BackgroundGradientDemo() {
     alert("Abhedya starts at 6PM, 30th March 2024. Hold on tight till then!")
   }
 
+  const lastRickRoll = () => {
+    alert("OMG not again xD")
+    router.push("https://www.youtube.com/watch?v=xvFZjo5PgG0")
+  }
+
   const finallyStartAbhedya = () => {
 
     console.log('clicked start')
@@ -152,78 +159,85 @@ export default function BackgroundGradientDemo() {
   
   return (
     startedAbhedya ? (
-      <div className="flex flex-col justify-center items-center gap-5">
-      <BackgroundBeams />
-      <span className="text-4xl mt-6">Level {currentQuestion.level}</span>
-      <div className="px-6 py-6 md:w-9/12 w-11/12 my-auto bg-[#151515] rounded shadow flex flex-col items-center">
-        <div className="flex my-4 flex-col gap-3">
-          <h2 className="w-5/6 dark:text-white text-lg text-justify font-normal">
-            {currentQuestion.questionTitle}
-          </h2>
-          <p className=" w-5/6">
-            {currentQuestion.questionBody}
-          </p>
-          
-          {(()=>{
-            console.log('andar se', currentQuestion)
+      !userWon ? (
+        <div className="flex flex-col text-white justify-center items-center gap-5">
+          <BackgroundBeams />
+          <span className="text-4xl mt-6">Level {currentQuestion.level}</span>
+          <div className="px-6 py-6 md:w-9/12 w-11/12 my-auto bg-[#151515] rounded shadow flex flex-col items-center">
+            <div className="flex my-4 flex-col gap-3">
+              <h2 className="w-5/6 dark:text-white text-lg text-justify font-normal">
+                {currentQuestion.questionTitle}
+              </h2>
+              <p className=" w-5/6">
+                {currentQuestion.questionBody}
+              </p>
+              
+              {(()=>{
+                console.log('andar se', currentQuestion)
 
-            if (currentQuestion.questionAssets?.length > 0) {
-              return ( currentQuestion.questionAssets.map((asset, index) => {
-                console.log('asset number ', index, asset)
-                switch (asset.type) {
-                  case 'image': 
-                    return (
-                      <img src={asset.url} height={200} width={200} alt={asset.url} className="rounded-md" />
-                    )
-                    break
-                  case 'video':
-                    return (
-                      <video width={200} height={200} controls>
-                        <source src={asset.url} type="video/mp4" />
-                      </video>
-                    )
-                    break
-                  case 'audio':
-                    return(
-                      <audio src={asset.url} controls />
-                    )
-                    break
-                  case 'redirect':
-                    return (
-                      <a href={asset.url} className=" text-red-600 underline">Reveal</a>
-                    )
-                    break
-                  default:
-                    return(
-                      <></>
-                    )
+                if (currentQuestion.questionAssets?.length > 0) {
+                  return ( currentQuestion.questionAssets.map((asset, index) => {
+                    console.log('asset number ', index, asset)
+                    switch (asset.type) {
+                      case 'image': 
+                        return (
+                          <img src={asset.url} height={200} width={200} alt={asset.url} className="rounded-md" />
+                        )
+                        break
+                      case 'video':
+                        return (
+                          <video width={200} height={200} controls>
+                            <source src={asset.url} type="video/mp4" />
+                          </video>
+                        )
+                        break
+                      case 'audio':
+                        return(
+                          <audio src={asset.url} controls />
+                        )
+                        break
+                      case 'redirect':
+                        return (
+                          <a href={asset.url} className=" text-red-600 underline">Reveal</a>
+                        )
+                        break
+                      default:
+                        return(
+                          <></>
+                        )
+                    }
+                  }))
                 }
-              }))
-            }
-          })()}
-          
+              })()}
+              
+            </div>
+            {/* <img src="https://0x0.st/XrOk.JPG" className="lg:w-[600px] sm:w-[320px] md:w-[490px]" /> */}
+            <div className="w-full gap-2 text-white flex flex-row items-center ">
+              <input
+                type="text"
+                placeholder="Type your answer here"
+                onChange={(e)=>setUserAnswer(e.target.value)}
+                value={userAnswer}
+                onKeyDown={(e)=> e.key == 'Enter' && handleAnswerSubmit(e)}
+                className="rounded-full border border-neutral-800 focus:ring-2 focus:ring-teal-500 h-10 p-4 w-full relative z-10  bg-neutral-950 placeholder:text-neutral-700"
+              />
+              <button className="shadow-[inset_0_0_0_2px_#616467] px-5 py-2 flex items-center gap-2 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200"
+                onClick={handleAnswerSubmit}
+              >
+                Submit
+              </button>
+            </div>
+          </div>
         </div>
-        {/* <img src="https://0x0.st/XrOk.JPG" className="lg:w-[600px] sm:w-[320px] md:w-[490px]" /> */}
-        <div className="w-full gap-2 flex flex-row items-center ">
-          <input
-            type="text"
-            placeholder="Type your answer here"
-            onChange={(e)=>setUserAnswer(e.target.value)}
-            value={userAnswer}
-            onKeyDown={(e)=> e.key == 'Enter' && handleAnswerSubmit(e)}
-            className="rounded-full border border-neutral-800 focus:ring-2 focus:ring-teal-500 h-10 p-4 w-full relative z-10  bg-neutral-950 placeholder:text-neutral-700"
-          />
-          <button className="shadow-[inset_0_0_0_2px_#616467] px-5 py-2 flex items-center gap-2 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200"
-            onClick={handleAnswerSubmit}
-          >
-            Submit
-          </button>
+      ) : (
+        <div className="flex flex-col text-white justify-center items-center gap-5">
+          <h1 className="text-2xl font-sans">Congratulations! It was hard but worth it at the end. You just completed Abhedya!</h1>
+          <h3>Click <span onClick={lastRickRoll} className=" text-green-500 font-bold underline">here</span> to move on to the winners' list</h3>
         </div>
-      </div>
-    </div>
+      )
     ) : (
       userLoggedIn ? (
-      <div className="h-full text-lg mt-10 flex flex-col items-center justify-start px-12">
+      <div className="h-full text-lg mt-10 flex text-white flex-col items-center justify-start px-12">
         <p>
         Welcome to <span className="text-green-500 underline m-0 font-extrabold text-xl px-2">Abhedya 3.0</span> - the <b className="mx-3 text-green-500 scale-125">BIGGEST</b>online cryptic hunt at NIT Hamirpur, brought to you by  <span className=" font-bold underline text-blue-400 mx-1"> Team ISTE</span>
         </p>
@@ -243,7 +257,7 @@ export default function BackgroundGradientDemo() {
         </p>
       </div>
       ) : (
-        <div className="w-screen h-screen flex flex-col items-center justify-start pt-12 ">
+        <div className="w-screen h-screen text-white flex flex-col items-center justify-start pt-12 ">
 
           <div className=" w-11/12 md:w-5/12 backdrop-blur-sm bg-gray-950 h-contain rounded-2xl p-8 flex border border-white flex-col justify-between items-start">
             <h1 className="text-xl font-semibold">You are not currently logged in.</h1>
