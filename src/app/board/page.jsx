@@ -29,7 +29,7 @@ export default function SparklesPreview() {
   }, [])
 
   return (
-    <div className="flex flex-col gap-2 items-center overflow-hidden justify-center ">
+    <div className="flex text-white flex-col gap-2 items-center overflow-hidden justify-center ">
       <BackgroundBeams />
                <div className="text-4xl pt-10 font-extrabold">
                     Leaderboard
