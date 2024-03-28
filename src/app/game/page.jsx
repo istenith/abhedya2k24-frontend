@@ -53,7 +53,7 @@ export default function BackgroundGradientDemo() {
                 setCurrentQuestion(questionReturnedFromBackend)
                 console.log('Current question', questionReturnedFromBackend)
               } else if(response.status == 201){
-                alert("Escape.")
+                alert("Can't believe you fell for it.")
                 router.push("https://www.youtube.com/watch?v=xvFZjo5PgG0")
               } else {
                 setUserLoggedIn(false)
