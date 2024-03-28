@@ -20,6 +20,10 @@ export default function SignupFormDemo() {
   const [userRegistered, setUserRegistered] = useState(false)
 
   const handleRegister = async (e: any) => {
+    if(!firstName || !lastName || !email || !username) {
+      alert('Please fill in all the fields')
+      return
+    }
     e.preventDefault()
     
     console.log(baseUrl)
