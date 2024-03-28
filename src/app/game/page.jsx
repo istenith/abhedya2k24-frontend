@@ -122,6 +122,10 @@ export default function BackgroundGradientDemo() {
     setUserAnswer("")
   }
   
+  const abhedyaNotStarted = () => {
+    alert("Abhedya starts at 6PM, 30th March 2024. Hold on tight till then!")
+  }
+
   const finallyStartAbhedya = () => {
 
     console.log('clicked start')
@@ -227,11 +231,13 @@ export default function BackgroundGradientDemo() {
           <ul>
             <li>You can use internet and all other related facilities</li>
             <li>Once you click Start, your time taken oer question will be recorded, no matter if you close you phone or laptop.</li>
+            <li>Keep yours answers safe on a sheet of paper for future reference.</li>
+            <li>Preferrably play on a laptop, or keep a laptop available incase it is required to clear a level.</li>
           </ul>
           <br />
           <br />
-          <button onClick={finallyStartAbhedya} className="self-center rounded-full px-5 py-2 border duration-200 hover:bg-green-700">
-            Start !
+          <button onClick={abhedyaNotStarted} className="self-center rounded-full px-5 py-2 border duration-200 hover:bg-green-700">
+            Start!
           </button>
         </p>
       </div>

@@ -9,6 +9,7 @@ export default function Home() {
           <h1 className="relative z-10 text-7xl md:text-9xl  bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-600  text-center font-sans font-bold">
             Abhedya 3.0
           </h1>
+          <h3 className="text-center py-2 text-gray-300 font-sans font-bold  underline text-xl">6PM, 30th March 2024</h3>
           <p></p>
           <p className="text-neutral-500 max-w-3xl mx-auto my-2 text-lg text-center relative">
           Embark on a cosmic adventure with Abhedya, an interstellar cryptic hunt challenging your logical, technical, and creative thinking.
