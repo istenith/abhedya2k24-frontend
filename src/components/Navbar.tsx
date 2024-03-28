@@ -1,105 +1,53 @@
-"use client";
-import React, { useState } from "react";
-import { useRouter } from 'next/navigation'
-import { HoveredLink, Menu, MenuItem, ProductItem } from "./ui/navbar-menu";
-import { cn } from "@/utils/cn";
-import Link from "next/link";
-import { useUrl } from 'nextjs-current-url';
+"use client"
+import React, { useEffect, useState } from 'react';
+import Link from 'next/link';
 
-function Navbar() {
-  const { pathname, href } = useUrl() ?? {};
-  console.log(pathname, href);
-  
-  const url = pathname ?? '';
+const Navbar = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [active, setActive] = useState('');
+  const [mobilehai ,setMobilehai] = useState(false);
 
-  const [active, setActive] = useState<string | null>(url);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setMobileMenuOpen(!mobileMenuOpen); 
+  const toggleNavbar = () => {
+    setIsOpen(!isOpen);
   };
+
+ useEffect(()=>{
+
+  if(typeof window !== 'undefined'){
+    const active = window.location.pathname;
+    console.log(active);
+    setActive(active)
+    if(window.innerWidth <= 768){
+      setMobilehai(true)
+    }
+
+
+  }
+ },[])
 
   return (
     <>
-      <nav className="w-100 px-8 md:px-auto">
-        <div className="md:h-16 h-28 mx-auto md:px-4 container flex items-center justify-between flex-wrap md:flex-nowrap">
-          <div className="text-indigo-50 text-3xl md:order-1">Abhedya</div>
-          <div className="text-gray-500 order-3 w-full md:w-auto md:order-2">
-            <ul className={`flex font-bold text-lg justify-between ${mobileMenuOpen ? 'hidden' : 'hidden'} md:flex`}>
-              <li
-                className={`ml-80 md:px-4 md:py-2 hover:text-indigo-50 ${active === "/" ? "text-indigo-50" : ""}`}
-                onClick={() => {
-                  setActive("/");
-                  setMobileMenuOpen(false);
-                }}
-              >
-                <Link href="/">Home</Link>
-              </li>
-              <li
-                className={`md:px-4 md:py-2 hover:text-indigo-50 ${active === "/board" ? "text-indigo-50" : ""}`}
-                onClick={() => {
-                  setActive("/board");
-                  setMobileMenuOpen(false);
-                }}
-              >
-                <Link href="/board">Leaderboard</Link>
-              </li>
-              <li
-                className={`md:px-4 md:py-2 hover:text-indigo-50 ${active === "/game" ? "text-indigo-50" : ""}`}
-                onClick={() => {
-                  setActive("/game");
-                  setMobileMenuOpen(false);
-                }}
-              >
-                <Link href="/game">Play</Link>
-              </li>
-            </ul>
-          </div>
-          
-          <div className={`ml-80 order-2 md:order-3 flex flex-row-reverse md:flex-row`}>
-            <div className="md:hidden flex flex-row">
-              <button
-                onClick={toggleMobileMenu}
-                className="text-gray-500 hover:text-indigo-50"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-6 w-6"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M3 12h14a1 1 0 110 2H3a1 1 0 110-2zm0-5h14a1 1 0 110 2H3a1 1 0 110-2zm0-5h14a1 1 0 110 2H3a1 1 0 110-2z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </button>
-            </div>
-            {mobileMenuOpen && (
-              <ul className="h-50 duration-300 mt-12 absolute right-0 md:right-auto md:left-0 text-white-900 bg-black rounded-lg shadow-lg mt-2 py-1 w-32">
-                <li className="text-white-800 hover:bg-gray-50 hover:text-indigo-500 px-4 py-2">
-                  <Link href="/">Home</Link>
-                </li>
-                <li className="text-white-800 hover:bg-indigo-50 hover:text-indigo-500 px-4 py-2">
-                  <Link href="/board">Leaderboard</Link>
-                </li>
-                <li className="text-white-800 hover:bg-indigo-50 hover:text-indigo-500 px-4 py-2">
-                  <Link href="/game">Play</Link>
-                </li>
-                <li className="text-white-800 hover:bg-indigo-50 hover:text-indigo-500 px-4 py-2">
-                  <Link href="/sign">SignUp</Link>
-                </li>
-              </ul>
-            )}
-          </div>
-          <div className="order-2 text-center md:order-3 flex items-center flex flex-row mt-2">
-            <Link href="/sign">
-              <button className=" hidden md:block shadow-[inset_0_0_0_2px_#616467] px-5 py-2 flex items-center gap-2 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200">
+      <nav className="w-full">
+        <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+          <Link href="/" passHref className="flex items-center space-x-3 rtl:space-x-reverse">
+            
+              {/* <img
+                src=""
+                className="h-8"
+                alt="Logo agar lagana h to idhar aayega"
+              /> */}
+              <span className="self-center font-serif text-3xl font-semibold whitespace-nowrap dark:text-white">
+                Abhedya
+              </span>
+            
+          </Link>
+          <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+            <a href='/sign'>
+          <button className="w-full hidden md:flex md:items-center shadow-[inset_0_0_0_2px_#616467] px-5 py-2 items-center gap-2 rounded-full tracking-widest uppercase font-bold bg-transparent hover:bg-[#616467] hover:text-white dark:text-neutral-200 transition duration-200">
               <span>Signup</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 flex items-center justify-center ml-6"
+                  className="h-5 w-5 ml-6 transform scale-x-[-1] "
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >
@@ -111,12 +59,80 @@ function Navbar() {
                 </svg>
                 
               </button>
-            </Link>
+              </a>
+            <button
+              data-collapse-toggle="navbar-sticky"
+              type="button"
+              className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+              aria-controls="navbar-sticky"
+              aria-expanded={isOpen ? 'true' : 'false'}
+              onClick={toggleNavbar}
+            >
+              <span className="sr-only">Open main menu</span>
+              <svg
+                className="w-5 h-5"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 17 14"
+              >
+                <path
+                  stroke="currentColor"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M1 1h15M1 7h15M1 13h15"
+                />
+              </svg>
+            </button>
+          </div>
+          <div
+            className={`items-center justify-between w-full md:flex md:w-auto md:order-1 ${
+              isOpen ? 'block' : 'hidden'
+            }`}
+            id="navbar-sticky"
+          >
+            <ul className="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 rtl:space-x-reverse  md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-black-800 md:dark:bg-black dark:border-gray-700">
+              <li>
+                <a
+                  href="/"
+                  className={`font-bold text-xl hover:text-gray-300  ${active=='/' ? "dark:text-gray-100":"text-gray-500" }`}
+                  aria-current="page"
+                >
+                  Home
+                </a>
+              </li>
+              
+              <li>
+                <a
+                  href="/board"
+                  className={`font-bold text-xl block  ${active=='/board' ? "dark:text-gray-100":"dark:text-gray-500" }`}
+                >
+                  Leaderboard
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/game"
+                  className={`font-bold text-xl block  ${active=='/game' ? "dark:text-gray-100":"dark:text-gray-500" }`}
+                >
+                  Play
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/sign"
+                  className={`font-bold text-xl block  ${active=='/sign' ? "dark:text-gray-100":"dark:text-gray-500" } ${mobilehai?'block':'hidden'}`}
+                >
+                  Signin
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
     </>
   );
-}
+};
 
 export default Navbar;

@@ -37,6 +37,7 @@ export default function BackgroundGradientDemo() {
             ex in Lorem sunt duis officia eiusmod. Aliqua reprehenderit commodo
             ex non excepteur duis sunt velit enim. Voluptate laboris sint
             cupidatat ullamco ut ea consectetur et est culpa et culpa duis.
+            
           </h2>
         </div>
         <img src="https://0x0.st/XrOk.JPG" className="lg:w-[600px] sm:w-[320px] md:w-[490px]" />
