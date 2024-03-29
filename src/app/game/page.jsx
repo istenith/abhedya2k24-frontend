@@ -27,7 +27,7 @@ export default function BackgroundGradientDemo() {
   const [startedAbhedya, setStartedAbhedya] = useState(false)
   const [currentQuestion, setCurrentQuestion] = useState({})
   const [userAnswer, setUserAnswer] = useState("")
-  const userWon = useRef(false)
+  const [userWon, setUserwWon] = useState(false)
   const [userLoggedIn, setUserLoggedIn] = useState(true)
 
   useEffect(() => {
@@ -55,7 +55,7 @@ export default function BackgroundGradientDemo() {
                   setCurrentQuestion(questionReturnedFromBackend)
                   console.log('Current question', questionReturnedFromBackend)
                 } else if(response.status == 201){
-                  userWon.current = true
+                  setUserwWon(true)
                   alert("Can't believe you fell for it.")
                   router.push("https://www.youtube.com/watch?v=xvFZjo5PgG0")
                 } else {
@@ -137,7 +137,6 @@ export default function BackgroundGradientDemo() {
   }
 
   const finallyStartAbhedya = () => {
-
     console.log('clicked start')
     const tokenInLocalStorage = localStorage.getItem("loginToken")
     
@@ -151,6 +150,7 @@ export default function BackgroundGradientDemo() {
         body: JSON.stringify({'token': tokenInLocalStorage})
       }).then(res => {
         if (res.status == 200) {
+          console.log("started abhedya")
           setStartedAbhedya(true)
         }
       })
@@ -158,8 +158,8 @@ export default function BackgroundGradientDemo() {
   }
   
   return (
-    startedAbhedya ? (
-      !userWon ? (
+    !userWon ? (
+      startedAbhedya ? (
         <div className="flex flex-col text-white justify-center items-center gap-5">
           <BackgroundBeams />
           <span className="text-4xl mt-6">Level {currentQuestion.level}</span>
@@ -178,10 +178,11 @@ export default function BackgroundGradientDemo() {
                 if (currentQuestion.questionAssets?.length > 0) {
                   return ( currentQuestion.questionAssets.map((asset, index) => {
                     console.log('asset number ', index, asset)
+                    console.log(asset.type, asset.url)
                     switch (asset.type) {
                       case 'image': 
                         return (
-                          <img src={asset.url} height={200} width={200} alt={asset.url} className="rounded-md" />
+                          <img src={asset.url} height={300} width={300} alt={"SHIT VAI"} className="rounded-md" />
                         )
                         break
                       case 'video':
@@ -198,7 +199,7 @@ export default function BackgroundGradientDemo() {
                         break
                       case 'redirect':
                         return (
-                          <a href={asset.url} className=" text-red-600 underline">Reveal</a>
+                          <a href={asset.url} className="text-red-600 font-bold underline">Reveal clue.</a>
                         )
                         break
                       default:
@@ -211,7 +212,6 @@ export default function BackgroundGradientDemo() {
               })()}
               
             </div>
-            {/* <img src="https://0x0.st/XrOk.JPG" className="lg:w-[600px] sm:w-[320px] md:w-[490px]" /> */}
             <div className="w-full gap-2 text-white flex flex-row items-center ">
               <input
                 type="text"
@@ -230,61 +230,60 @@ export default function BackgroundGradientDemo() {
           </div>
         </div>
       ) : (
-        <div className="flex flex-col text-white justify-center items-center gap-5">
-          <h1 className="text-2xl font-sans">Congratulations! It was hard but worth it at the end. You just completed Abhedya!</h1>
-          <h3>Click <span onClick={lastRickRoll} className=" text-green-500 font-bold underline">here</span> to move on to the winners&apos; list</h3>
-        </div>
+        userLoggedIn ? (
+          <div className="h-full text-lg mt-10 flex text-white flex-col items-center justify-start px-12">
+            <p>
+            Welcome to <span className="text-green-500 underline m-0 font-extrabold text-xl px-2">Abhedya 3.0</span> - the <b className="mx-3 text-green-500 scale-125">BIGGEST</b>online cryptic hunt at NIT Hamirpur, brought to you by  <span className=" font-bold underline text-blue-400 mx-1"> Team ISTE</span>
+            </p>
+            <p className="mt-8">
+              <span className="text-lg font-medium underline">These are the important guidelines everyone is request to read before embarking on this journey</span>
+              <ul className=" list-inside list-decimal pl-5">
+                <li>This hunt consists of 15 questions, going from easy to hard and harder. Correctly answering the last one leads to the great surprise.</li>
+                <li>You can use internet and all other related facilities</li>
+                <li>Once you click Start, your time taken oer question will be recorded, no matter if you close you phone or laptop.</li>
+                <li>Keep yours answers safe on a sheet of paper for future reference.</li>
+                <li>Preferrably play on a laptop, or keep a laptop available incase it is required to clear a level.</li>
+              </ul>
+              <br />
+              <br />
+              <button onClick={finallyStartAbhedya} className="self-center rounded-full px-5 py-2 border duration-200 hover:bg-green-700">
+                Start!
+              </button>
+            </p>
+          </div>
+          ) : (
+            <div className="w-screen h-screen text-white flex flex-col items-center justify-start pt-12 ">
+    
+              <div className=" w-11/12 md:w-5/12 backdrop-blur-sm bg-gray-950 h-contain rounded-2xl p-8 flex border border-white flex-col justify-between items-start">
+                <h1 className="text-xl font-semibold">You are not currently logged in.</h1>
+                <p className="  text-gray-200">
+                  To participate in <big>Abhedya</big> - the biggest online cryptic hunt @ NIT Hamirpur, make sure that you are <a href="/sign" className=" text-blue-400 italic underline">registered&rarr;</a>
+                </p>
+                <p className="  text-gray-200 text-md">
+                  <u><b className="text-white">If you have already registered</b></u>, make sure to - <br />
+                    <ol className=" list-decimal ml-8">
+                      <li>Find the login link recieved on your e-mail (check spam folder too!) &#9745;</li>
+                      <li>Click the login button, or the link provided in the mail &#9745;</li>
+                    </ol>
+                    Now you will be logged in and ready to play. All the best for this adventure!
+                </p>
+                <p>
+                  Incase of any discrepancies or doubts, contact 
+                  <ul className="list-disc ml-8">
+                    <li>Sourabh - 9418223946</li>
+                    <li>Mehul - 9717333704</li>
+                  </ul>
+                </p>
+              </div>
+    
+            </div>
+          )
       )
     ) : (
-      userLoggedIn ? (
-      <div className="h-full text-lg mt-10 flex text-white flex-col items-center justify-start px-12">
-        <p>
-        Welcome to <span className="text-green-500 underline m-0 font-extrabold text-xl px-2">Abhedya 3.0</span> - the <b className="mx-3 text-green-500 scale-125">BIGGEST</b>online cryptic hunt at NIT Hamirpur, brought to you by  <span className=" font-bold underline text-blue-400 mx-1"> Team ISTE</span>
-        </p>
-        <p className="mt-8">
-          <span className="text-lg font-medium underline">These are the important guidelines everyone is request to read before embarking on this journey</span>
-          <ul>
-            <li>This hunt consists of 15 questions, going from easy to hard and harder. Correctly answering the last one leads to the great surprise.</li>
-            <li>You can use internet and all other related facilities</li>
-            <li>Once you click Start, your time taken oer question will be recorded, no matter if you close you phone or laptop.</li>
-            <li>Keep yours answers safe on a sheet of paper for future reference.</li>
-            <li>Preferrably play on a laptop, or keep a laptop available incase it is required to clear a level.</li>
-          </ul>
-          <br />
-          <br />
-          <button onClick={finallyStartAbhedya} className="self-center rounded-full px-5 py-2 border duration-200 hover:bg-green-700">
-            Start!
-          </button>
-        </p>
-      </div>
-      ) : (
-        <div className="w-screen h-screen text-white flex flex-col items-center justify-start pt-12 ">
-
-          <div className=" w-11/12 md:w-5/12 backdrop-blur-sm bg-gray-950 h-contain rounded-2xl p-8 flex border border-white flex-col justify-between items-start">
-            <h1 className="text-xl font-semibold">You are not currently logged in.</h1>
-            <p className="  text-gray-200">
-              To participate in <big>Abhedya</big> - the biggest online cryptic hunt @ NIT Hamirpur, make sure that you are <a href="/sign" className=" text-blue-400 italic underline">registered&rarr;</a>
-            </p>
-            <p className="  text-gray-200 text-md">
-              <u><b className="text-white">If you have already registered</b></u>, make sure to - <br />
-                <ol className=" list-decimal ml-8">
-                  <li>Find the login link recieved on your e-mail (check spam folder too!) &#9745;</li>
-                  <li>Click the login button, or the link provided in the mail &#9745;</li>
-                </ol>
-                Now you will be logged in and ready to play. All the best for this adventure!
-            </p>
-            <p>
-              Incase of any discrepancies or doubts, contact 
-              <ul className="list-disc ml-8">
-                <li>Sourabh - 9418223946</li>
-                <li>Mehul - 9717333704</li>
-              </ul>
-            </p>
-          {/* <Meteors number={10} /> */}
-          </div>
-
-        </div>
-      )
+      <div className="flex flex-col text-white justify-center items-center gap-5">
+        <h1 className="text-2xl font-sans">Congratulations! It was hard but worth it at the end. You just completed Abhedya!</h1>
+        <h3>Click <span onClick={lastRickRoll} className=" text-green-500 font-bold underline">here</span> to move on to the winners&apos; list</h3>
+      </div>  
     )
-  );
+  )
 }
