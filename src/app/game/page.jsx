@@ -164,11 +164,11 @@ export default function BackgroundGradientDemo() {
           <BackgroundBeams />
           <span className="text-4xl mt-6">Level {currentQuestion.level}</span>
           <div className="px-6 py-6 md:w-9/12 w-11/12 my-auto bg-[#151515] rounded shadow flex flex-col items-center">
-            <div className="flex my-4 flex-col gap-3">
+            <div className="flex my-4 items-center text-wrap flex-col gap-3">
               <h2 className="w-5/6 dark:text-white text-lg text-justify font-normal">
                 {currentQuestion.questionTitle}
               </h2>
-              <p className=" w-5/6">
+              <p className="dark:text-white text-wrap overflow-scroll p-2 max-w-5xl text-md text-left"> 
                 {currentQuestion.questionBody}
               </p>
               
