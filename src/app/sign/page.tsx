@@ -61,6 +61,40 @@ export default function SignupFormDemo() {
       })
   }
 
+  const handleResend=(e:any) => {
+    if( !email) {
+      alert('Please fill in the email')
+      return
+    }
+    e.preventDefault()
+    fetch(`{baseUrl}/user/resend`,{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({email})
+    }).then(res => {
+      if(res.status == 200) {
+
+        setFirstName('')
+        setLastName('')
+        setEmail('')
+        setusername('')
+        console.log(res)                  
+        return res
+      } else if (res.status == 401) {          
+        alert('User not found by this email address')
+        setFirstName('')
+        setLastName('')
+        setEmail('')
+        setusername('')       
+      } 
+    })
+
+
+    }
+  
+
   return (
       <div className="antialiased bd-grid-white/[0.02]">
         <div className="max-w-md w-full text-white mt-12 mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
@@ -111,7 +145,15 @@ export default function SignupFormDemo() {
                       Register
                       <BottomGradient />
                     </button>
+                    
                   </div>      
+                  <button
+                      className="hover:bg-gray-700 tracking-widest font-extrabold duration-200 border border-accent-800 mt-4 rounded-full w-full h-10 "
+                      onClick={handleResend}
+                    >
+                      Resend Link
+                      <BottomGradient />
+                    </button>
                 </form>
               </>
             ) : (
@@ -125,8 +167,8 @@ export default function SignupFormDemo() {
         </div>
       </div>
   );
-}
 
+  }
 const BottomGradient = () => {
   return (
     <>

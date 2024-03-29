@@ -182,7 +182,7 @@ export default function BackgroundGradientDemo() {
                     switch (asset.type) {
                       case 'image': 
                         return (
-                          <img src={asset.url} height={300} width={300} alt={"SHIT VAI"} className="rounded-md" />
+                          <img src={asset.url} height={300} width={300} alt={asset.url} className="rounded-md" />
                         )
                         break
                       case 'video':
