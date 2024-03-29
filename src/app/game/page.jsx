@@ -112,7 +112,7 @@ export default function BackgroundGradientDemo() {
         alert('Correct Answer!')
         
         console.log('about to change question state')
-        setCurrentQuestion(data)
+        // setCurrentQuestion(data)
         console.log('changed question state')
       }else if(response.status == 201){
         setUserwWon(true)

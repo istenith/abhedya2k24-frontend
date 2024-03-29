@@ -121,6 +121,14 @@ const Navbar = () => {
               </li>
               <li>
                 <a
+                  href="/rule"
+                  className={`font-bold text-xl hover:text-gray-300 ${active=='/game' ? "dark:text-gray-100":"text-gray-500" }`}
+                >
+                  Rules
+                </a>
+              </li>
+              <li>
+                <a
                   href="/sign"
                   className={`font-bold text-xl hover:text-gray-300  ${active=='/sign' ? "dark:text-gray-100":"dark:text-gray-500" } ${mobilehai?'block':'hidden'}`}
                 >
