@@ -56,8 +56,6 @@ export default function BackgroundGradientDemo() {
                   console.log('Current question', questionReturnedFromBackend)
                 } else if(response.status == 201){
                   setUserwWon(true)
-                  alert("Can't believe you fell for it.")
-                  router.push("https://www.youtube.com/watch?v=xvFZjo5PgG0")
                 } else {
                   setUserLoggedIn(false)
                 }
@@ -116,6 +114,10 @@ export default function BackgroundGradientDemo() {
         console.log('about to change question state')
         setCurrentQuestion(data)
         console.log('changed question state')
+      }else if(response.status == 201){
+        setUserwWon(true)
+        alert("Can't believe you fell for it.")
+        router.push("https://www.youtube.com/watch?v=xvFZjo5PgG0")
       }else{
         alert("Incorrect! Try again.")
       }
@@ -160,7 +162,7 @@ export default function BackgroundGradientDemo() {
   return (
     !userWon ? (
       startedAbhedya ? (
-        <div className="flex flex-col text-white justify-center items-center gap-5">
+        <div clue={"debugged"} className=".no-scrollbar flex flex-col text-white justify-center items-center gap-5">
           <BackgroundBeams />
           <span className="text-4xl mt-6">Level {currentQuestion.level}</span>
           <div className="px-6 py-6 md:w-9/12 w-11/12 my-auto bg-[#151515] rounded shadow flex flex-col items-center">
@@ -237,12 +239,13 @@ export default function BackgroundGradientDemo() {
             </p>
             <p className="mt-8">
               <span className="text-lg font-medium underline">These are the important guidelines everyone is request to read before embarking on this journey</span>
-              <ul className=" list-inside list-decimal pl-5">
+              <ul className="list-inside list-decimal pl-5">
                 <li>This hunt consists of 15 questions, going from easy to hard and harder. Correctly answering the last one leads to the great surprise.</li>
                 <li>You can use internet and all other related facilities</li>
                 <li>Once you click Start, your time taken oer question will be recorded, no matter if you close you phone or laptop.</li>
                 <li>Keep yours answers safe on a sheet of paper for future reference.</li>
                 <li>Preferrably play on a laptop, or keep a laptop available incase it is required to clear a level.</li>
+                <li>Answers can be in lowercase/uppercase/capitalize/camelcase.</li>
               </ul>
               <br />
               <br />

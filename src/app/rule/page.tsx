@@ -5,28 +5,18 @@ import { LampContainer } from "@/components/ui/lamp";
 
 export default function LampDemo() {
   return (
-    <LampContainer>
-      <motion.h1
-        initial={{ opacity: 0.5, y: 100 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{
-          delay: 0.3,
-          duration: 0.8,
-          ease: "easeInOut",
-        }}
-        className="mt-8 bg-gradient-to-br from-slate-300 to-slate-500 py-4 bg-clip-text text-center text-4xl font-medium tracking-tight text-transparent md:text-7xl"
-      >
-  
-      </motion.h1>
+    <div className="flex flex-col gap-5 items-center justify-center">
       <h1 className="text-5xl mx-inset-3 text-zinc-200  font-semibold">RULES</h1>
-      <div className="m ">
-      <ul className="list-disc text-2xl justify-center  text-zinc-200 items-center py-2">
-        <li>You can use internet and all other related facilities</li>
-        <li>Once you click Start, your time taken oer question will be recorded, no matter if you close you phone or laptop.</li>
-      </ul>
+      <div className="">
+              <ul className=" list-inside list-decimal pl-5">
+                <li>This hunt consists of 15 questions, going from easy to hard and harder. Correctly answering the last one leads to the great surprise.</li>
+                <li>You can use internet and all other related facilities</li>
+                <li>Once you click Start, your time taken oer question will be recorded, no matter if you close you phone or laptop.</li>
+                <li>Keep yours answers safe on a sheet of paper for future reference.</li>
+                <li>Preferrably play on a laptop, or keep a laptop available incase it is required to clear a level.</li>
+                <li>Answers can be in lowercase/uppercase/capitalize/camelcase.</li>
+              </ul>
       </div>
-
-
-    </LampContainer>
+     </div>
   );
 }
