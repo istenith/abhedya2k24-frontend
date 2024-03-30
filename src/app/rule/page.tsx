@@ -11,8 +11,8 @@ export default function LampDemo() {
               <ul className=" list-inside list-decimal pl-5">
                 <li>This hunt consists of 15 questions, going from easy to hard and harder. Correctly answering the last one leads to the great surprise.</li>
                 <li>You can use internet and all other related facilities</li>
-                <li>Once you click Start, your time taken oer question will be recorded, no matter if you close you phone or laptop.</li>
-                <li>Keep yours answers safe on a sheet of paper for future reference.</li>
+                <li>Once you click Start, your time taken per question will be recorded, no matter if you close your phone or laptop.</li>
+                <li>Keep your answers safe somewhere for future reference.</li>
                 <li>Preferrably play on a laptop, or keep a laptop available incase it is required to clear a level.</li>
                 <li>Answers can be in lowercase/uppercase/capitalize/camelcase.</li>
               </ul>
