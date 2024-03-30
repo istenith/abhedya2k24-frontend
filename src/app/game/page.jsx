@@ -5,6 +5,7 @@ import { BackgroundBeams } from "@/components/background-beams";
 import { useRouter } from "next/navigation";
 import { BackgroundGradient } from "@/components/ui/background-gradient";
 import { baseUrl } from "@/utils/config";
+import Marquee from "@/components/marquee";
 
 const Icon = ({ className, ...rest }) => {
   return (
@@ -163,6 +164,7 @@ export default function BackgroundGradientDemo() {
     !userWon ? (
       startedAbhedya ? (
         <div clue={"debugged"} className=".no-scrollbar flex flex-col text-white justify-center items-center gap-5">
+          <Marquee />
           <BackgroundBeams />
           <span className="text-4xl mt-6">Level {currentQuestion.level}</span>
           <div className="px-6 py-6 md:w-9/12 w-11/12 my-auto bg-[#151515] rounded shadow flex flex-col items-center">
@@ -233,6 +235,8 @@ export default function BackgroundGradientDemo() {
         </div>
       ) : (
         userLoggedIn ? (
+          <>
+            <Marquee />
           <div className="h-full text-lg mt-10 flex text-white flex-col items-center justify-start px-12">
             <p>
             Welcome to <span className="text-green-500 underline m-0 font-extrabold text-xl px-2">Abhedya 3.0</span> - the <b className="mx-3 text-green-500 scale-125">BIGGEST</b>online cryptic hunt at NIT Hamirpur, brought to you by  <span className=" font-bold underline text-blue-400 mx-1"> Team ISTE</span>
@@ -254,9 +258,11 @@ export default function BackgroundGradientDemo() {
               </button>
             </p>
           </div>
+          </>
           ) : (
+            <>
+              <Marquee />
             <div className="w-screen h-screen text-white flex flex-col items-center justify-start pt-12 ">
-    
               <div className=" w-11/12 md:w-5/12 backdrop-blur-sm bg-gray-950 h-contain rounded-2xl p-8 flex border border-white flex-col justify-between items-start">
                 <h1 className="text-xl font-semibold">You are not currently logged in.</h1>
                 <p className="  text-gray-200">
@@ -280,10 +286,12 @@ export default function BackgroundGradientDemo() {
               </div>
     
             </div>
+          </>
           )
       )
     ) : (
       <div className="flex flex-col text-white justify-center items-center gap-5">
+        <Marquee />
         <h1 className="text-2xl font-sans">Congratulations! It was hard but worth it at the end. You just completed Abhedya!</h1>
         <h3>Click <span onClick={lastRickRoll} className=" cursor-pointer text-green-500 font-bold underline">here</span> to move on to the winners&apos; list</h3>
       </div>  

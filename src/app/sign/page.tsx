@@ -11,6 +11,7 @@ import {
 } from "@tabler/icons-react";
 import { BackgroundBeams } from "@/components/background-beams";
 import { baseUrl } from "@/utils/config";
+import Marquee from "@/components/marquee";
 
 export default function SignupFormDemo() {
   const [firstName, setFirstName] = useState('')
@@ -96,6 +97,8 @@ export default function SignupFormDemo() {
   
 
   return (
+    <>
+    <Marquee />
       <div className="antialiased bd-grid-white/[0.02]">
         <div className="max-w-md w-full text-white mt-12 mx-auto rounded-none md:rounded-2xl p-4 md:p-8 shadow-input bg-white dark:bg-black">
           {
@@ -166,6 +169,7 @@ export default function SignupFormDemo() {
             )}
         </div>
       </div>
+    </>
   );
 
   }

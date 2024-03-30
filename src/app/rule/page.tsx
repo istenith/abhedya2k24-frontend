@@ -2,10 +2,12 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { LampContainer } from "@/components/ui/lamp";
+import Marquee from "@/components/marquee";
 
 export default function LampDemo() {
   return (
     <div className="flex flex-col gap-5 items-center justify-center">
+      <Marquee />
       <h1 className="text-5xl mx-inset-3 text-zinc-200  font-semibold">RULES</h1>
       <div className="">
               <ul className=" list-inside list-decimal pl-5">

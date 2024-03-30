@@ -3,9 +3,9 @@ const nextConfig = {
  images: {
     domains: ['0x0.st'],
   },
-    // compiler: {
-    //   removeConsole: true,
-    // }
+    compiler: {
+      removeConsole: true,
+    }
 };
 
 export default nextConfig;

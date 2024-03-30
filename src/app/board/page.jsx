@@ -2,6 +2,7 @@
 import { BackgroundBeams } from "@/components/background-beams";
 import { baseUrl } from "@/utils/config";
 import React, {useState, useEffect} from "react";
+import Marquee from "@/components/marquee"
 
 export default function SparklesPreview() {
   const [data, setdata] = useState([])
@@ -31,6 +32,7 @@ export default function SparklesPreview() {
   return (
     <div className="flex text-white flex-col gap-2 items-center overflow-hidden justify-center ">
       <BackgroundBeams />
+      <Marquee />
                <div className="text-4xl pt-10 font-extrabold">
                     Leaderboard
                </div>
