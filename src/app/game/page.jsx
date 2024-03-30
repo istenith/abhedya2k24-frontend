@@ -112,7 +112,7 @@ export default function BackgroundGradientDemo() {
         alert('Correct Answer!')
         
         console.log('about to change question state')
-        // setCurrentQuestion(data)
+        setCurrentQuestion(data)
         console.log('changed question state')
       }else if(response.status == 201){
         setUserwWon(true)
@@ -166,11 +166,11 @@ export default function BackgroundGradientDemo() {
           <BackgroundBeams />
           <span className="text-4xl mt-6">Level {currentQuestion.level}</span>
           <div className="px-6 py-6 md:w-9/12 w-11/12 my-auto bg-[#151515] rounded shadow flex flex-col items-center">
-            <div className="flex my-4 items-center text-wrap flex-col gap-3">
+            <div className="flex my-4 w-11/12 items-center relative text-wrap flex-col gap-3">
               <h2 className="w-5/6 dark:text-white text-lg text-justify font-normal">
                 {currentQuestion.questionTitle}
               </h2>
-              <p className="dark:text-white text-wrap overflow-scroll p-2 max-w-5xl text-md text-left"> 
+              <p className="dark:text-white text-wrap overflow-scroll p-2 w-10/12 text-md text-left"> 
                 {currentQuestion.questionBody}
               </p>
               
@@ -184,7 +184,7 @@ export default function BackgroundGradientDemo() {
                     switch (asset.type) {
                       case 'image': 
                         return (
-                          <img src={asset.url} height={300} width={300} alt={asset.url} className="rounded-md" />
+                          <iframe src={asset.url} width="400" height="400"  allow="autoplay"></iframe>
                         )
                         break
                       case 'video':
